@@ -2,6 +2,7 @@
 pragma solidity ^0.8.9;
 
 contract CrowdFunding {
+    // is this like a class? This is the structure of each campaign
     struct Campaign {
         address owner;
         string title;
@@ -14,10 +15,14 @@ contract CrowdFunding {
         uint256[] donations;
     }
 
+    // now we can do things like campaigns[0]; -> something we can do natively in JS
     mapping(uint256 => Campaign) public campaigns;
 
+    // global var - set to 0
     uint256 public numberOfCampaigns = 0;
 
+    // a way to create a campaign
+    // return the id of that camoaign
     function createCampaign(
         address _owner,
         string memory _title,
@@ -28,7 +33,7 @@ contract CrowdFunding {
     ) public returns (uint256) {
         Campaign storage campaign = campaigns[numberOfCampaigns];
 
-        // like a test
+        // like a check/test - if it fails the code will stop
         require(
             campaign.deadline < block.timestamp,
             "The deadline should be a date in the future"
@@ -47,6 +52,8 @@ contract CrowdFunding {
         return numberOfCampaigns - 1;
     }
 
+    // a function to allow users to donate to campaigns
+    // payable is a keyword to note we are sending crypto
     function donateToCampaign(uint256 _id) public payable {
         uint256 amount = msg.value;
 
@@ -62,6 +69,7 @@ contract CrowdFunding {
         }
     }
 
+    // to get a list of all the donators
     function getDonators(uint256 _id)
         public
         view
@@ -70,6 +78,7 @@ contract CrowdFunding {
         return (campaigns[_id].donators, campaigns[_id].donations);
     }
 
+    // a function to get a list of all the campaigns
     function getCampaigns() public view returns (Campaign[] memory) {
         Campaign[] memory allCampaigns = new Campaign[](numberOfCampaigns);
 
