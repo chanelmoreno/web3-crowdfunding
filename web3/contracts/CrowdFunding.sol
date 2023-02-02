@@ -22,7 +22,7 @@ contract CrowdFunding {
     uint256 public numberOfCampaigns = 0;
 
     // a way to create a campaign
-    // return the id of that camoaign
+    // return the id of that campaign
     function createCampaign(
         address _owner,
         string memory _title,
