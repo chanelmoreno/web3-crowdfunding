@@ -12,6 +12,7 @@ Crowdfunding/kickstarter website using web3 technologies
 React Router 
 tailwind
 userNaviagate hook from react
+- are compnents always self closing? how to know when self closing?
 
 
 Credit: https://www.youtube.com/watch?v=BDCT6TYLYdI
