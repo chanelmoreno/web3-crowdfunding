@@ -7,7 +7,8 @@ Crowdfunding/kickstarter website using web3 technologies
 
 ### Iterations
 - refactor navbar/sidebar - dont like this UI 
-- Add tag fucntionaly in the fundCard (e.g. education, music, food, technology, etc)
+- Add tag functionality in the fundCard (e.g. education, music, food, technology, etc)
+
 
 ### To review
 React Router 
