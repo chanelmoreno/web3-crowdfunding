@@ -21,11 +21,14 @@ const Profile = () => {
 
 
   return (
-    <DisplayCampaigns
-      title="All My Campaigns"
-      isLoading={isLoading}
-      campaigns={campaigns}
-    />
+    <div>
+      <DisplayCampaigns
+        title="All My Campaigns"
+        isLoading={isLoading}
+        campaigns={campaigns}
+      />
+    </div>
+
   )
 }
 
