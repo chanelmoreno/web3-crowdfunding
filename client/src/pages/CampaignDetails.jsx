@@ -64,7 +64,7 @@ const CampaignDetails = () => {
         <div className="flex md:w-[250px] w-full flex-wrap justify-center gap-[40px]">
           <CountBox title="Days Left" value={remainingDays} />
           <CountBox title={`Raised of ${state.target}`} value={state.amountCollected} />
-          <CountBox title="Total Backers" value={donators.length} />
+          <CountBox title="Total Funders" value={donators.length} />
         </div>
       </div>
 
@@ -99,7 +99,7 @@ const CampaignDetails = () => {
           </div>
 
           <div>
-            <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase">Donators</h4>
+            <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase">Donators ({donators.length})</h4>
 
             <div className="mt-[20px] flex flex-col gap-4">
               {donators.length > 0 ? donators.map((item, index) => (

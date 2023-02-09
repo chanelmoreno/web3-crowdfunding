@@ -13,16 +13,15 @@ Crowdfunding/kickstarter website using web3 technologies
 ```npm run build```
 
 ### Iterations
-- Active/Inactive campaigns (days left)
-
+- 
 
 ### To review
-React Router??? useLocation??
-userNaviagate hook from react
-StateContext?
-Solidity 
-async, await, promises, try/catch
-tailwind
+- React Router??? 
+- useLocation??
+- userNaviagate hook from react
+- StateContext?
+- Solidity 
+- async, await, promises, try/catch
 
 
 ### Questions 

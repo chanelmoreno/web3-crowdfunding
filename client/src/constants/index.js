@@ -11,11 +11,15 @@ export const navlinks = [
     imgUrl: createCampaign,
     link: '/create-campaign',
   },
-
   {
     name: 'profile',
     imgUrl: profile,
     link: '/profile',
+  },
+  {
+    name: 'about',
+    imgUrl: payment,
+    link: '/about',
   },
   {
     name: 'disconnect',
