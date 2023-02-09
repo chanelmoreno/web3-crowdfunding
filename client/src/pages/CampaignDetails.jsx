@@ -10,11 +10,12 @@ import { thirdweb } from '../assets';
 const CampaignDetails = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
-  const { donate, getDonations, contract, address } = useStateContext();
+  const { donate, getDonations, contract, address, getUserCampaigns } = useStateContext();
 
   const [isLoading, setIsLoading] = useState(false);
   const [amount, setAmount] = useState('');
   const [donators, setDonators] = useState([]);
+  const [campaigns, setCampaigns] = useState([]);
 
   const remainingDays = daysLeft(state.deadline);
 
@@ -27,6 +28,17 @@ const CampaignDetails = () => {
   useEffect(() => {
     if (contract) fetchDonators();
   }, [contract, address])
+
+
+  const fetchCampaigns = async () => {
+    const campaigns = await getUserCampaigns();
+    setCampaigns(campaigns);
+  }
+
+  useEffect(() => {
+    if (contract) fetchCampaigns();
+  }, getUserCampaigns)
+
 
   const handleDonate = async () => {
     setIsLoading(true);
@@ -67,14 +79,20 @@ const CampaignDetails = () => {
               </div>
               <div>
                 <h4 className="font-epilogue font-semibold text-[14px] text-white break-all">{state.owner}</h4>
-                <p className="mt-[4px] font-epilogue font-normal text-[12px] text-[#808191]">10 Campaigns</p>
+                <div>
+                  {campaigns.length == 1
+                    ? <p className="mt-[4px] font-epilogue font-normal text-[12px] text-[#808191]">{campaigns.length} campaign</p>
+                    : <p className="mt-[4px] font-epilogue font-normal text-[12px] text-[#808191]">{campaigns.length} campaigns</p>
+
+                  }
+                </div>
+
               </div>
             </div>
           </div>
 
           <div>
             <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase mr-[10px]">Story</h4>
-
             <div className="mt-[20px]">
               <p className="font-epilogue font-normal text-[16px] text-[#808191] leading-[26px] text-justify pr-10">{state.description}</p>
             </div>
