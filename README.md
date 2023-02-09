@@ -6,6 +6,12 @@ Crowdfunding/kickstarter website using web3 technologies
 
 ```npm run dev```
 
+
+# To build for production deployment
+````cd client````
+
+```npm run build```
+
 ### Iterations
 - refactor navbar/sidebar - dont like this UI 
 - Add tag functionality in the fundCard (e.g. education, music, food, technology, etc)
@@ -13,6 +19,7 @@ Crowdfunding/kickstarter website using web3 technologies
 - Campaign details 
   - dynamic # of campaigns 
   - fix UI
+- Active/Inactive campaigns (days left)
 
 
 ### To review

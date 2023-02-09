@@ -19,7 +19,7 @@ const CampaignDetails = () => {
   const remainingDays = daysLeft(state.deadline);
 
   const fetchDonators = async () => {
-    const data = await getDonations(state.pId);
+    const data = await getDonations(state.projectID);
 
     setDonators(data);
   }
@@ -30,17 +30,16 @@ const CampaignDetails = () => {
 
   const handleDonate = async () => {
     setIsLoading(true);
-
-    await donate(state.pId, amount);
-
-    navigate('/')
+    console.log(state.projectID)
+    await donate(state.projectID, amount);
     setIsLoading(false);
+    navigate(`/campaign-details/${state.title}`, { state: state });
   }
 
   return (
     <div>
       {isLoading && <Loader />}
-      <h4 className="mt-[50px] text-[#4acd8d] font-epilogue font-semibold text-[25px] text-white uppercase">{state.title}</h4>
+      <h4 className="mt-[50px]  font-epilogue font-semibold text-white uppercase text-[18px]">The Campaign: <span className='text-[#4acd8d] text-[25px]'>{state.title}</span></h4>
       <div className="flex content-around w-[95%] flex md:flex-row flex-col mt-10 gap-[20px]">
         <div className="flex-1 flex-col">
           <img src={state.image} alt="campaign" className="w-full h-[400px] object-cover rounded-xl" />
