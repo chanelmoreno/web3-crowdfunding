@@ -50,6 +50,7 @@ const About = () => {
           💡 Able to activate/deactivate campaigns <br />
           💡 Able to comment on campaigns <br />
           💡 Paginations for donators 10+ on campaigns <br />
+          💡 Search Campaign functionality <br />
         </p>
       </div >
 
